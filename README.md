@@ -55,4 +55,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Contact
 
-For questions or feedback, please contact [your-email@example.com].
+For questions or feedback, please contact [ajeypandey27@gmail.com].
