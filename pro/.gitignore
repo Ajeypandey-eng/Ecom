@@ -1,0 +1,26 @@
+# Django/Python
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+
+# Media and static files
+/media/
+staticfiles/
+static/
+cat_img/
+test_imgs/
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Migrations
+*/migrations/*.pyc
+*/migrations/__pycache__/
