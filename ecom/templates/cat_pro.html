@@ -1,0 +1,46 @@
+{% extends "master_nav_footer.html" %}
+{% load static %}
+
+{% block content1 %}
+<!--======================Collection Section======================-->
+<section class="container py-5">
+  <div class="row justify-content-center">
+    {% if pro %}
+    {% for i in pro %}
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card scale-style h-100">
+        <a href="{% url 'pro_details' i.id %}" class="text-decoration-none">
+          <img class="card-img-top" src="{{i.image.url}}" alt="{{i.name}}" />
+        </a>
+        <div class="card-body text-center d-flex flex-column">
+          <h5 class="card-title text-dark">{{i.name}}</h5>
+          <p class="card-text font-weight-bold text-primary">${{i.price}}</p>
+
+          <div class="mt-auto">
+            {% if i.stock <= 0 %} <button class="btn btn-secondary btn-block" disabled>Out of Stock</button>
+              {% else %}
+              <form action="{% url 'pro_details' i.id %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="qty" value="1">
+                <button type="submit" name="buy" class="btn btn-primary btn-sm btn-block mb-2">Buy Now</button>
+              </form>
+              <form action="{% url 'pro_details' i.id %}" method="POST" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="qty" value="1">
+                <button type="submit" name="cart" class="btn btn-outline-success btn-sm btn-block">Add To Cart</button>
+              </form>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="col-12 text-center">
+      <h3 class="text-muted">No products found in this category.</h3>
+      <a href="{% url 'index' %}" class="btn btn-primary mt-3">Go Back Home</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock content1 %}

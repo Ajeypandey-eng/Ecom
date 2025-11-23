@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vastra - Indian Ethnic Wear</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'CSS/modern_style.css' %}">
+</head>
+
+<body>
+  <!--====================== Navbar ======================-->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light glass-panel">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <i class="fas fa-shopping-bag mr-2"></i>Vastra
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Shop</a>
+            </li>
+            {% if logged_in %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Sign up</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary text-white ml-2 px-4" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="orderhistory.html">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="addproduct.html">
+                <i class="fa-solid fa-plus-square" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="nav-item ml-2">
+              <div class="input-group">
+                <input class="form-control border-right-0" type="text" placeholder="Search..."
+                  style="border-radius: 20px 0 0 20px;" />
+                <div class="input-group-append">
+                  <span class="input-group-text bg-white border-left-0" style="border-radius: 0 20px 20px 0;">
+                    <i class="fa fa-search text-muted"></i>
+                  </span>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item ml-3">
+              <a class="nav-link position-relative" href="{% url 'cart_view' %}">
+                <i class="fa fa-shopping-cart fa-lg"></i>
+                <span class="badge badge-danger badge-pill position-absolute" style="top: -5px; right: -5px;">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  {% block content1 %}
+
+  {% endblock content1 %}
+
+  {% block content2 %}
+
+  {% endblock content2 %}
+
+  <!--======================Footer Section======================-->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="mb-4">Vastra</h5>
+          <p class="text-muted">Experience the best in Indian ethnic wear. Quality products, fast delivery, and
+            excellent customer service.</p>
+          <div class="mt-4">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="{% url 'index' %}">Home</a></li>
+            <li class="mb-2"><a href="#">Shop</a></li>
+            <li class="mb-2"><a href="#">About Us</a></li>
+            <li class="mb-2"><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled text-muted">
+            <li class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123, MG Road, Bangalore, India</li>
+            <li class="mb-2"><i class="fas fa-phone mr-2"></i> +91 98765 43210</li>
+            <li class="mb-2"><i class="fas fa-envelope mr-2"></i> support@vastra.in</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4" />
+      <div class="row">
+        <div class="col text-center">
+          <p class="mb-0 text-muted">&copy; 2023 Vastra. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
